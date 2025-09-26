@@ -2,5 +2,15 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
     "config:recommended"
+  ],
+  "customManagers": [
+    {
+      "customType": "regex",
+      "fileMatch": ["ImageNameConstant\\.java$"],
+      "matchStrings": [
+        "\"(?<depName>[a-z0-9./_-]+):(?<currentValue>[0-9.\\-a-z]+)\""
+      ],
+      "datasourceTemplate": "docker"
+    }
   ]
 }
